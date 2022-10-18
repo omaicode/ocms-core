@@ -1,0 +1,20 @@
+{
+    "name": "Core",
+    "alias": "core",
+    "version": "1.0.0",
+    "type": "composer",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Core\\Providers\\CoreServiceProvider"
+    ],
+    "aliases": {
+        "Menu": "Modules\\Core\\Facades\\Menu",
+        "Email": "Modules\\Core\\Facades\\Email",
+        "AdminAsset": "Modules\\Core\\Facades\\AdminAsset",
+        "ApiResponse": "Modules\\Core\\Facades\\ApiResponseFacade"
+    },
+    "files": [],
+    "requires": []
+}

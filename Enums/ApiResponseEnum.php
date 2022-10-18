@@ -1,0 +1,17 @@
+<?php
+
+namespace Modules\Core\Enums;
+
+use Omaicode\Enum\Enum;
+
+/**
+ * @method static static SUCCESS( )
+ * @method static static VALIDATION( )
+ * @method static static SERVER_ERROR()
+ */
+final class ApiResponseEnum extends Enum
+{
+    const SUCCESS      =  0;
+    const VALIDATION   =  1;
+    const SERVER_ERROR = -1;
+}

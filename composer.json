@@ -1,0 +1,27 @@
+{
+    "name": "omaicode/ocms-core",
+    "description": "Core module for OCMS",
+    "require": {
+        "php": ">=7.3",
+        "omaicode/laravel-enum": "*",
+        "omaicode/larinfo": "*",
+        "omaicode/modules-management": "*",
+        "omaicode/permissions-management": "*",
+        "omaicode/repository": "*",
+        "omaicode/laravel-table-builder": "*",
+        "omaicode/log-viewer": "*",
+        "omaicode/medialibrary": "*",
+        "omaicode/form-builder": "*"        
+    },
+    "authors": [
+        {
+            "name": "Bieber Kieu",
+            "email": "thien.kt@omaicode.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Core\\": ""
+        }
+    }
+}
