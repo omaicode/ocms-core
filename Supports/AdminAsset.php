@@ -163,6 +163,12 @@ class AdminAsset
         return $this;
     }
 
+    /**
+     * Push content to layout
+     * @param mixed $name 
+     * @param mixed $content 
+     * @return $this 
+     */
     public function push($name, $content)
     {
         $this->pushs[$name] = $content;
@@ -170,8 +176,36 @@ class AdminAsset
         return $this;
     }
 
+    /**
+     * Get pushed assets
+     * @return array 
+     */
     public function getPushs()
     {
         return $this->pushs;
+    }
+
+    /**
+     * Check script or stylesalready exists
+     * 
+     * @param mixed $type 
+     * @param mixed $path 
+     * @return bool 
+     */
+    public function has($type, $path)
+    {
+        if($type == 'js') {
+            return collect($this->scripts)->filter(function($src_path) use ($path) {
+                return $src_path['url'] == $path;
+            })->values()->isNotEmpty();
+        }
+
+        if($type == 'css') {
+            return collect($this->styles)->filter(function($src_path) use ($path) {
+                return $src_path['url'] == $path;
+            })->values()->isNotEmpty();
+        }
+
+        return false;
     }
 }

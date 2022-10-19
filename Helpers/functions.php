@@ -66,3 +66,11 @@ if(!function_exists('dateFormat')) {
         return Carbon::parse($date)->format(config('app.date_format', 'Y-m-d H:i:s'));
     }
 }
+
+if(!function_exists('addon_path')) {
+    function addon_path($path = '')
+    {
+        $path = ltrim($path, '/');
+        return base_path('addons/shortcodes/'.$path);
+    }
+}

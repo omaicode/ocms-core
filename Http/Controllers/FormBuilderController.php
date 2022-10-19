@@ -10,6 +10,7 @@ class FormBuilderController extends BaseController
     use AuthorizesRequests;
 
     protected array $breadcrumb = [];
+    protected $title = '';
 
     protected function index()
     {
@@ -26,17 +27,36 @@ class FormBuilderController extends BaseController
 
     protected function edit($id)
     {
+        $breadcrumb = $this->breadcrumb;
+        $breadcrumb[] = [
+            'title' => __('form-builder::messages.edit'),
+            'url'   => '#'
+        ];
+        $breadcrumb[] = [
+            'title' => "#".$id,
+            'url'   => request()->url()
+        ];
+        $this->form()->title(__('form-builder::messages.edit').' #'.$id);
+
         return app(AdminPage::class)
-        ->title($this->title)
-        ->breadcrumb($this->breadcrumb)
+        ->title(' #'.$id.' | '.$this->title())
+        ->breadcrumb($breadcrumb)
         ->body($this->form()->edit($id));
     }
 
     protected function create()
     {
+        $breadcrumb = $this->breadcrumb;
+        $breadcrumb[] = [
+            'title' => __('form-builder::messages.create'),
+            'url'   => request()->url()
+        ];
+
+        $this->form()->title(__('form-builder::messages.create'));
+
         return app(AdminPage::class)
-        ->title($this->title)
-        ->breadcrumb($this->breadcrumb)
+        ->title(__('form-builder::messages.create').' | '.$this->title())
+        ->breadcrumb($breadcrumb)
         ->body($this->form());
     }
 }

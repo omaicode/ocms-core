@@ -32,11 +32,6 @@ class AdminController extends FormBuilderController
             [
                 'title'  => __('core::menu.system.administrators'), 
                 'url'    => route('admin.system.administrators.index'),
-            ],
-            [
-                'title'  => __('core::menu.create'), 
-                'url'    => route('admin.system.administrators.create'),
-                'enable' => $this->request->routeIs('admin.system.administrators.create')
             ]
         ];        
     }

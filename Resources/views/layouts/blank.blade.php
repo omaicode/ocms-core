@@ -14,6 +14,11 @@
         <!-- Styles -->
         <link type="text/css" href="{{ adminAsset('core/css/app.css')}}" rel="stylesheet">       
         @stack('styles')   
+
+        <!-- Global script -->
+        <script>
+            window.OCMS = {{ isset($global_variables) ? json_encode($global_variables) : '{}' }}
+        </script>        
     </head>
     <body>
         @yield('content')

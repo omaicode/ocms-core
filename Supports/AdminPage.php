@@ -18,6 +18,7 @@ class AdminPage implements Renderable, AdminPageContract
     protected $body;
     protected $view;
     protected array $breadcrumb = [];
+    protected $global_variables = [];
 
     public function title(string $title)
     {
@@ -67,20 +68,45 @@ class AdminPage implements Renderable, AdminPageContract
     public function render()
     {
         try {
+            $this->initShortcodes();
+
             $layout     = $this->layout ?: 'core::'.config('core.admin_layout', 'default-master');
             $title      = __($this->title);
             $body       = (!is_string($this->body) && method_exists($this->body, 'render')) ? $this->body->render() : $this->body;
             $breadcrumb = $this->breadcrumb;
+            $global_variables = $this->global_variables;
             
             return View::make(
                 $layout,
-                compact('title', 'body', 'breadcrumb')
+                compact('title', 'body', 'breadcrumb', 'global_variables')
             );;
         } catch(HttpResponseException $e) {
             throw $e;
         } catch (Throwable $e) {
             Log::error($e);
             abort(500);
+        }
+    }
+
+    public function addVariables(array $variables)
+    {
+        $this->global_variables = array_merge($this->global_variables, $variables);
+
+        return $this;
+    }
+    
+    private function initShortcodes()
+    {
+        $class = "\\Modules\\Appearance\\Facades\\Shortcode";
+        if(class_exists($class)) {
+            $shortcodes = $class::compiler()->getRegistered();
+            $variables  = [];
+
+            foreach($shortcodes as $key => $value) {
+                $variables[] = method_exists($value, 'info') ? $value::info() : $key;
+            }
+
+            $this->addVariables(['Shortcodes' => $variables]);
         }
     }
 }
