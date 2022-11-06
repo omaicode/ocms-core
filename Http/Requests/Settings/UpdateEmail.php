@@ -14,8 +14,8 @@ class UpdateEmail extends FormRequest
     public function rules()
     {
         return [
-            'mail_default'  => 'required',
-            'mail_queue'    => 'nullable|in:on,off'
+            'mail__default'  => 'required',
+            'mail__queue'    => 'nullable|in:on,off'
         ];
     }
 

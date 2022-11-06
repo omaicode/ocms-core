@@ -14,13 +14,13 @@ class UpdateBackend extends FormRequest
     public function rules()
     {
         return [
-            'app_name'      => 'required|alpha_dash|alpha_num',
-            'app_language'  => 'required|in:en,vi',
-            'app_timezone'  => 'required',
-            'app_debug'     => 'nullable|in:on,off',
-            'app_cache'     => 'nullable|in:on,off',
-            'app_logo'      => 'nullable|file|image|max:3072',
-            'app_favicon'   => 'nullable|file|image|max:3072',
+            'app__name'      => 'required|alpha_dash|alpha_num',
+            'app__language'  => 'required|in:en,vi',
+            'app__timezone'  => 'required',
+            'app__debug'     => 'nullable|in:on,off',
+            'app__cache'     => 'nullable|in:on,off',
+            'app__logo'      => 'nullable|file|image|max:3072',
+            'app__favicon'   => 'nullable|file|image|max:3072',
         ];
     }
 

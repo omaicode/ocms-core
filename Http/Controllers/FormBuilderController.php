@@ -3,7 +3,7 @@ namespace Modules\Core\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\Core\Contracts\AdminPage;
-use Omaicode\FormBuilder\Controllers\FormBuilderController as BaseController;
+use Modules\Form\Controllers\FormBuilderController as BaseController;
 
 class FormBuilderController extends BaseController
 {
@@ -29,14 +29,14 @@ class FormBuilderController extends BaseController
     {
         $breadcrumb = $this->breadcrumb;
         $breadcrumb[] = [
-            'title' => __('form-builder::messages.edit'),
+            'title' => __('form::messages.edit'),
             'url'   => '#'
         ];
         $breadcrumb[] = [
             'title' => "#".$id,
             'url'   => request()->url()
         ];
-        $this->form()->title(__('form-builder::messages.edit').' #'.$id);
+        $this->form()->title(__('form::messages.edit').' #'.$id);
 
         return app(AdminPage::class)
         ->title(' #'.$id.' | '.$this->title())
@@ -48,14 +48,14 @@ class FormBuilderController extends BaseController
     {
         $breadcrumb = $this->breadcrumb;
         $breadcrumb[] = [
-            'title' => __('form-builder::messages.create'),
+            'title' => __('form::messages.create'),
             'url'   => request()->url()
         ];
 
-        $this->form()->title(__('form-builder::messages.create'));
+        $this->form()->title(__('form::messages.create'));
 
         return app(AdminPage::class)
-        ->title(__('form-builder::messages.create').' | '.$this->title())
+        ->title(__('form::messages.create').' | '.$this->title())
         ->breadcrumb($breadcrumb)
         ->body($this->form());
     }

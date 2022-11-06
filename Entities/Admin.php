@@ -7,8 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Modules\Core\Traits\HasApiTokens;
-use Omaicode\MediaLibrary\HasMedia;
-use Omaicode\MediaLibrary\InteractsWithMedia;
+use Modules\Media\Interfaces\HasMedia;
+use Modules\Media\Traits\InteractsWithMedia;
 use Omaicode\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable implements HasMedia

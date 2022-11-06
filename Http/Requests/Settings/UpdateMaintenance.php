@@ -14,7 +14,7 @@ class UpdateMaintenance extends FormRequest
     public function rules()
     {
         return [
-            'app_maintenance' => 'nullable|in:on,off',
+            'app__maintenance' => 'nullable|in:on,off',
         ];
     }
 

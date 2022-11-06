@@ -48,30 +48,30 @@ class SettingController extends Controller
     public function updateBackend(UpdateBackend $request)
     {
         $data = $request->only([
-            'app_language',
-            'app_name',
-            'app_debug',
-            'app_timezone',
-            'app_logo',
-            'app_favicon'
+            'app__language',
+            'app__name',
+            'app__debug',
+            'app__timezone',
+            'app__logo',
+            'app__favicon'
         ]);
         
-        if($request->hasFile('app_logo')) {
-            $media = Media::upload($data['app_logo']);
-            $data['app_logo'] = $media ? $media['save_path'] : null;
+        if($request->hasFile('app__logo')) {
+            $media = Media::upload($data['app__logo']);
+            $data['app__logo'] = $media ? $media['save_path'] : null;
         } else {
-            unset($data['app_logo']);
+            unset($data['app__logo']);
         }
 
-        if($request->hasFile('app_favicon')) {
-            $media = Media::upload($data['app_favicon']);
-            $data['app_favicon'] = $media ? $media['save_path'] : null;
+        if($request->hasFile('app__favicon')) {
+            $media = Media::upload($data['app__favicon']);
+            $data['app__favicon'] = $media ? $media['save.path'] : null;
         } else {
-            unset($data['app_favicon']);
+            unset($data['app__favicon']);
         }
 
-        $data['app_debug'] = @$data['app_debug'] == 'on' ? true : false;
-        $data['app_cache'] = @$data['app_cache'] == 'on' ? true : false;
+        $data['app__debug'] = @$data['app__debug'] == 'on' ? true : false;
+        $data['app__cache'] = @$data['app__cache'] == 'on' ? true : false;
 
         Config::set($data);
 
@@ -81,8 +81,8 @@ class SettingController extends Controller
     public function updateAnalytics(UpdateAnalytics $request)
     {
         $data = $request->only([
-            'app_analytics_trackingId',
-            'app_analytics_viewId'
+            'app__analytics__trackingId',
+            'app__analytics__viewId'
         ]);
 
         Config::set($data);
@@ -93,10 +93,10 @@ class SettingController extends Controller
     public function updateMaintenance(UpdateMaintenance $request)
     {
         $data = $request->only([
-            'app_maintenance',
+            'app__maintenance',
         ]);
 
-        $data['app_maintenance'] = @$data['app_maintenance'] == 'on' ? true : false;
+        $data['app__maintenance'] = @$data['app__maintenance'] == 'on' ? true : false;
 
         Config::set($data);
 
@@ -106,7 +106,7 @@ class SettingController extends Controller
     public function updateEmail(UpdateEmail $request)
     {
         $data = $request->input();
-        $data['mail_queue'] = @$data['mail_queue'] == 'on' ? true : false;
+        $data['mail__queue'] = @$data['mail__queue'] == 'on' ? true : false;
 
         Config::set($data);
 

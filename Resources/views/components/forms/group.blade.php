@@ -16,6 +16,16 @@
                 @if($readonly)readonly @endif
                 @if($disabled)disabled @endif
             >
+        @elseif($mode == 'textarea')
+            <textarea 
+                class="form-control @if($errors->has($name)) is-invalid @endif" 
+                name="{{$name}}"
+                type="{{$type}}"
+                placeholder="{{$placeholder}}"
+                @if($required)required @endif
+                @if($readonly)readonly @endif
+                @if($disabled)disabled @endif
+            >{{$value}}</textarea>
         @elseif($mode == 'select')
             <select
                 class="form-select @if($errors->has($name)) is-invalid @endif"

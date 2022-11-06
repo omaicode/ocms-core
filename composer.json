@@ -10,8 +10,7 @@
         "omaicode/repository": "*",
         "omaicode/laravel-table-builder": "*",
         "omaicode/log-viewer": "*",
-        "omaicode/medialibrary": "*",
-        "omaicode/form-builder": "*"        
+        "omaicode/medialibrary": "*"
     },
     "authors": [
         {

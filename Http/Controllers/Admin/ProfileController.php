@@ -5,9 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Core\Contracts\AdminPage;
 use Modules\Core\Entities\Admin;
-use Omaicode\FormBuilder\Form;
-use Omaicode\Permission\Models\Role;
-
+use Modules\Form\Form;
 class ProfileController extends Controller
 {
     protected $request;
@@ -46,13 +44,14 @@ class ProfileController extends Controller
     {
         $user = $this->request->user();
         $form = new Form(new Admin);        
+
         $form->title(__('core::messages.profile'));
         $form->setAction(route('admin.profile.update'));
         $form->redirectUrl(route('admin.profile'));
 
         $form->row(function($form) {
-            $form->width(4)->display('id', __('form-builder::messages.id'));
-            $form->width(4)->display('created_at', __('form-builder::messages.created_at'))->with(fn() => $this->created_at->format('Y-m-d H:i:s'));
+            $form->width(4)->display('id', __('form::messages.id'));
+            $form->width(4)->display('created_at', __('form::messages.created_at'))->with(fn() => $this->created_at->format('Y-m-d H:i:s'));
             $form->width(4)->display('username', __('core::messages.admin.username'));
             
             $form->width(6)
@@ -77,7 +76,7 @@ class ProfileController extends Controller
                 ->password('password_confirmation', __('core::messages.admin.password_confirm'))
                 ->placeholder(__('core::messages.admin.password_confirm_placeholder'));
         });
-        
+
         $content_2 = __('core::messages.admin.password_help');
 
         $form->getLayout()->setCustomContent(<<<HTML

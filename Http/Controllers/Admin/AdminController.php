@@ -8,7 +8,7 @@ use Modules\Core\Contracts\AdminPage;
 use Modules\Core\Entities\Admin;
 use Modules\Core\Http\Controllers\FormBuilderController;
 use Modules\Core\Tables\AdminTable;
-use Omaicode\FormBuilder\Form;
+use Modules\Form\Form;
 use Omaicode\Permission\Models\Role;
 
 class AdminController extends FormBuilderController
@@ -74,8 +74,8 @@ class AdminController extends FormBuilderController
 
         $form->row(function($form) use ($roles, $super_user) {
             if($form->isEditing()) {
-                $form->width(6)->display('id', __('form-builder::messages.id'));
-                $form->width(6)->display('created_at', __('form-builder::messages.created_at'));
+                $form->width(6)->display('id', __('form::messages.id'));
+                $form->width(6)->display('created_at', __('form::messages.created_at'));
             }
 
             $form->width(6)

@@ -14,8 +14,8 @@ class UpdateAnalytics extends FormRequest
     public function rules()
     {
         return [
-            'app_analytics_trackingId' => 'nullable',
-            'app_analytics_viewId'  => 'nullable',
+            'app__analytics__trackingId' => 'nullable',
+            'app__analytics__viewId'  => 'nullable',
         ];
     }
 

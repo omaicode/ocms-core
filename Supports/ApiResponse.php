@@ -2,6 +2,7 @@
 namespace Modules\Core\Supports;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 
 class ApiResponse extends Response
 {
@@ -62,8 +63,12 @@ class ApiResponse extends Response
         return $this;
     }
 
-    public function data(array $data = [])
+    public function data($data = [])
     {
+        if($data instanceof Collection) {
+            $data = $data->toArray();
+        }
+
         $this->with_data = $data;
         $this->setContent($this->getData());
 

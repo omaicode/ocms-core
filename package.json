@@ -38,6 +38,9 @@
     "tom-select": "^2.1.0",
     "vanillajs-datepicker": "^1.2.0",
     "vue": "^3.2.40",
+    "vue-final-modal": "^3.4.4",
+    "vue-loader": "^17.0.0",
+    "vue3-dropzone": "^2.0.1",
     "waypoints": "^4.0.1"
   }
 }

@@ -41,7 +41,7 @@
                     <x-forms::base-form method="POST" :action="route('admin.settings.backend.post')" :multipart="true">
                         <x-forms::group 
                             label="App Name"
-                            name="app_name" 
+                            name="app__name" 
                             help="This name is shown in the title area of the back-end" 
                             placeholder="MyApp"
                             :required="true"
@@ -49,17 +49,17 @@
                         />
                         <x-forms::thumbnail
                             label="App Logo"
-                            name="app_logo"            
+                            name="app__logo"            
                             :value="uploadPath(config('app.logo'))"                       
                         />
                         <x-forms::thumbnail
                             label="App Favicon"
-                            name="app_favicon"
+                            name="app__favicon"
                             :value="uploadPath(config('app.favicon'))"                                   
                         />
                         <x-forms::group 
                             mode="select" 
-                            name="app_language" 
+                            name="app__language" 
                             label="Language" 
                             :required="true"
                         >
@@ -68,7 +68,7 @@
                         </x-forms::group>
                         <x-forms::group 
                             mode="select" 
-                            name="app_timezone"
+                            name="app__timezone"
                             label="Timezone" 
                             :required="true"
                         >
@@ -82,14 +82,14 @@
                         </x-forms::group>
                         <x-forms::group 
                             mode="switch" 
-                            name="app_debug"
+                            name="app__debug"
                             label="Debug Mode"
                             help="Only enable in development environment"
                             :checked="config('app.debug', true)"
                         />
                         <x-forms::group 
                             mode="switch" 
-                            name="app_cache"
+                            name="app__cache"
                             label="Cache Mode"
                             help="Optimize for database query and page load speed"
                             :checked="config('app.cache', false)"
@@ -108,13 +108,13 @@
                     <x-forms::base-form method="POST" :action="route('admin.settings.analytics.post')">
                         <x-forms::group 
                             label="Tracking ID"
-                            name="app_analytics_trackingId" 
+                            name="app__analytics__trackingId" 
                             placeholder="Example: GA-123456778-9"
                             :value="config('app.analytics.trackingId', '')"
                         />
                         <x-forms::group 
                             label="View ID"
-                            name="app_analytics_viewId" 
+                            name="app__analytics__viewId" 
                             placeholder="Enter View ID"
                             :value="config('app.analytics.viewId', '')"
                         />
@@ -132,7 +132,7 @@
                     <x-forms::base-form method="POST" :action="route('admin.settings.maintenance.post')">
                         <x-forms::group 
                             mode="switch" 
-                            name="app_maintenance"
+                            name="app__maintenance"
                             label="Maintenance Mode"
                             help="Enable maintenance mode, visitors will see maintenance page when they try to access."
                             :checked="config('app.maintenance', true)"

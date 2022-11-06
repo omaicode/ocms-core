@@ -29,12 +29,12 @@ class Config
         foreach($settings as $setting) {
             if(is_numeric($setting->value)) {
                 if((int)$setting->value === 0 || (int)$setting->value === 1) {
-                    FacadesConfig::set(str_replace('_', '.', $setting->key), $setting->value == 1 ? true : false);
+                    FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value == 1 ? true : false);
                 } else {
-                    FacadesConfig::set(str_replace('_', '.', $setting->key), $setting->value);
+                    FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value);
                 }
             } else {
-                FacadesConfig::set(str_replace('_', '.', $setting->key), $setting->value);
+                FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value);
             }
         }
     }
