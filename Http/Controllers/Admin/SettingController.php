@@ -107,6 +107,7 @@ class SettingController extends Controller
     {
         $data = $request->input();
         $data['mail__queue'] = @$data['mail__queue'] == 'on' ? true : false;
+        $data['mail__enable'] = @$data['mail__enable'] == 'on' ? true : false;
 
         Config::set($data);
 
