@@ -35,7 +35,7 @@
                         <x-forms::group 
                             mode="select"
                             label="Mailer"
-                            name="mail_default" 
+                            name="mail__default" 
                             :required="true"
                         >
                             <option value="smtp" @if(config('mail.default') == 'smtp')selected @endif>SMTP</option>
@@ -49,21 +49,21 @@
                         <div id="smtp_section">
                             <x-forms::group 
                                 label="Host"
-                                name="mail_mailers_smtp_host" 
+                                name="mail__mailers__smtp__host" 
                                 placeholder="smtp.gmail.com"
                                 :value="config('mail.mailers.smtp.host')"
                             />                                  
                             <x-forms::group 
                                 type="number"
                                 label="Port"
-                                name="mail_mailers_smtp_port" 
+                                name="mail__mailers__smtp__port" 
                                 placeholder="587"
                                 :value="config('mail.mailers.smtp.port')"
                             />        
                             <x-forms::group 
                                 mode="select"
                                 label="Encryption"
-                                name="mail_mailers_smtp_encryption" 
+                                name="mail__mailers__smtp__encryption" 
                             >
                                 <option value="" @if(config('mail.mailers.smtp.encryption') == null)selected @endif>None</option>
                                 <option value="tls" @if(config('mail.mailers.smtp.encryption') == 'tls')selected @endif>TLS</option>
@@ -72,21 +72,21 @@
                             </x-forms::group>                                                           
                             <x-forms::group 
                                 label="Username"
-                                name="mail_mailers_smtp_username" 
+                                name="mail__mailers__smtp__username" 
                                 placeholder="Enter SMTP username"
                                 :value="config('mail.mailers.smtp.username')"
                             />                                  
                             <x-forms::group
                                 label="Password"
-                                name="mail_mailers_smtp_password" 
+                                name="mail__mailers__smtp__password" 
                                 placeholder="Enter SMTP password"
                                 :value="config('mail.mailers.smtp.password')"
                             />                                  
                         </div>
-                        <div id="sendmail_section" style="display: none">
+                        <div id="sendmail__section" style="display: none">
                             <x-forms::group 
                                 label="Sendmail Path"
-                                name="mail_mailers_sendmail_path" 
+                                name="mail__mailers__sendmail__path" 
                                 help="Default: /usr/sbin/sendmail -bs -i"
                                 :value="config('mail.mailers.sendmail.path')"
                             />                                  
@@ -94,12 +94,12 @@
                         <div id="mailgun_section" style="display: none">
                             <x-forms::group 
                                 label="Domain"
-                                name="mail_mailers_mailgun_domain" 
+                                name="mail__mailers__mailgun__domain" 
                                 :value="config('mail.mailers.mailgun.domain')"
                             />                                  
                             <x-forms::group 
                                 label="Endpoint"
-                                name="mail_mailers_mailgun_endpoint" 
+                                name="mail__mailers__mailgun__endpoint" 
                                 :value="config('mail.mailers.mailgun.endpoint')"
                             />                                  
                         </div>
@@ -107,37 +107,37 @@
                             <x-forms::group 
                                 mode="select"
                                 label="Log channel"
-                                name="mail_mailers_log_channel" 
+                                name="mail__mailers__log__channel" 
                                 :value="config('mail.mailers.log.channel')"
                             />                                                                  
                         </div>
                         <div id="ses_section" style="display: none">
                             <x-forms::group 
                                 label="Key"
-                                name="mail_mailers_ses_key" 
+                                name="mail__mailers__ses__key" 
                                 :value="config('mail.mailers.ses.key')"
                             />                                  
                             <x-forms::group 
                                 label="Endpoint"
-                                name="mail_mailers_ses_region" 
+                                name="mail__mailers__ses__region" 
                                 :value="config('mail.mailers.ses.region')"
                             />                                  
                         </div>
                         <x-forms::group 
                             label="Sender Name"
-                            name="mail_from_name" 
+                            name="mail__from__name" 
                             placeholder="John Doe"
                             :value="config('mail.from.name')"
                         />                            
                         <x-forms::group 
                             label="Sender Address"
-                            name="mail_from_address" 
+                            name="mail__from__address" 
                             placeholder="noreply@example.com"
                             :value="config('mail.from.address')"
                         />     
                         <x-forms::group 
                             mode="switch" 
-                            name="mail_queue"
+                            name="mail__queue"
                             label="Queue Mode"
                             help="Turn it on if your site have large users (<a href='https://laravel.com/docs/8.x/queues#running-the-queue-worker'>Documentation</a>)."
                             :checked="config('mail.queue', false)"
