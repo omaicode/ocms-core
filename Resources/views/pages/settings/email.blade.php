@@ -137,6 +137,13 @@
                         />     
                         <x-forms::group 
                             mode="switch" 
+                            name="mail__enable"
+                            label="Enable"
+                            help="Turn it on or off"
+                            :checked="config('mail.enable', false)"
+                        />                                                   
+                        <x-forms::group 
+                            mode="switch" 
                             name="mail__queue"
                             label="Queue Mode"
                             help="Turn it on if your site have large users (<a href='https://laravel.com/docs/8.x/queues#running-the-queue-worker'>Documentation</a>)."
