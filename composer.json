@@ -4,14 +4,14 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.3",
-        "omaicode/laravel-enum": "*",
-        "omaicode/larinfo": "*",
-        "omaicode/modules-management": "*",
-        "omaicode/permissions-management": "*",
-        "omaicode/repository": "*",
-        "omaicode/laravel-table-builder": "*",
-        "omaicode/log-viewer": "*",
-        "omaicode/medialibrary": "*"
+        "omaicode/laravel-enum": "*@dev",
+        "omaicode/larinfo": "*@dev",
+        "omaicode/modules-management": "*@dev",
+        "omaicode/permissions-management": "*@dev",
+        "omaicode/repository": "*@dev",
+        "omaicode/laravel-table-builder": "*@dev",
+        "omaicode/log-viewer": "*@dev",
+        "omaicode/medialibrary": "*@dev"
     },
     "authors": [
         {
