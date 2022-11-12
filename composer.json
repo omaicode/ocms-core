@@ -10,8 +10,7 @@
         "omaicode/permissions-management": "*@dev",
         "omaicode/repository": "*@dev",
         "omaicode/laravel-table-builder": "*@dev",
-        "omaicode/log-viewer": "*@dev",
-        "omaicode/medialibrary": "*@dev"
+        "omaicode/log-viewer": "*@dev"
     },
     "authors": [
         {
