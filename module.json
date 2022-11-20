@@ -5,7 +5,7 @@
     "type": "composer",
     "description": "",
     "keywords": [],
-    "priority": 0,
+    "priority": 1,
     "providers": [
         "Modules\\Core\\Providers\\CoreServiceProvider"
     ],

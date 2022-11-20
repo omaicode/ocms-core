@@ -40,7 +40,12 @@ class RoleTableSeeder extends Seeder
             'system.roles.delete',
             'system.information.view',
             'system.activity.view',
-            'system.error_log.view'
+            'system.error_log.view',
+            'appearance.view',
+            'pages.view',
+            'pages.create',
+            'pages.edit',
+            'pages.delete'
         ];        
     }
 

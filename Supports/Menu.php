@@ -45,6 +45,10 @@ class Menu
             'enable' => true
         ];
 
+        if(isset($options['enable']) && !boolval($options['enable'])) {
+            return $this;
+        }
+
         $options = array_merge($defaultOptions, $options);
         $id = $options['id'];
 
