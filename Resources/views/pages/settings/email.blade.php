@@ -83,7 +83,7 @@
                                 :value="config('mail.mailers.smtp.password')"
                             />                                  
                         </div>
-                        <div id="sendmail__section" style="display: none">
+                        <div id="sendmail_section" style="display: none">
                             <x-forms::group 
                                 label="Sendmail Path"
                                 name="mail__mailers__sendmail__path" 

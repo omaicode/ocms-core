@@ -25,18 +25,20 @@ class Config
         } else {
             $settings = Cache::get('admin_settings');
         }
-
+        
+        $configs = [];
         foreach($settings as $setting) {
-            if(is_numeric($setting->value)) {
-                if((int)$setting->value === 0 || (int)$setting->value === 1) {
-                    FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value == 1 ? true : false);
-                } else {
-                    FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value);
-                }
-            } else {
-                FacadesConfig::set(str_replace('__', '.', $setting->key), $setting->value);
+            $formatted_key = str_replace('__', '.', $setting->key);
+            $value = $setting->value;
+
+            if(is_numeric($value) && in_array((int)$value, [0, 1], true)) {
+                $value = (int)$value === 0 ? false : true;
             }
+
+            $configs[$formatted_key] = $value;
         }
+
+        FacadesConfig::set($configs);
     }
 
     public static function set(...$args)

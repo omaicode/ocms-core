@@ -56,7 +56,7 @@
         'use strict';
         
         let   selected_template;
-        const mailer  = document.querySelector('select[name="mail_default"]');
+        const mailer  = document.querySelector('select[name="mail__default"]');
         const buttons = document.querySelector('.btn[data-toggle="edit-template-modal"]');
 
         toggleSection(mailer.value)
@@ -129,5 +129,5 @@
                 }
             })
         })
-    })()
+    })();
 </script>

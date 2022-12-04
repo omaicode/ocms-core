@@ -79,7 +79,7 @@ class AdminPage implements Renderable, AdminPageContract
             return View::make(
                 $layout,
                 compact('title', 'body', 'breadcrumb', 'global_variables')
-            );;
+            );
         } catch(HttpResponseException $e) {
             throw $e;
         } catch (Throwable $e) {

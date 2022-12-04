@@ -1,8 +1,9 @@
-const axios = require('axios')
+const axios = require('axios');
 
 axios.create({
     headers: {
-        'X-Requested-With': XMLHttpRequest
+        'X-Requested-With': XMLHttpRequest,
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     }
 })
 

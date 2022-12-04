@@ -1,5 +1,7 @@
 <?php
 namespace Modules\Core\View\Components\Forms;
+
+use AdminAsset;
 use Illuminate\View\Component;
 class Thumbnail extends Component
 {

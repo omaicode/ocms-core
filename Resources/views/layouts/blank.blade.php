@@ -17,7 +17,7 @@
 
         <!-- Global script -->
         <script>
-            window.OCMS = {{ isset($global_variables) ? json_encode($global_variables) : '{}' }}
+            window.OCMS = {!! isset($global_variables) ? json_encode($global_variables) : '{}' !!}
         </script>        
     </head>
     <body>
