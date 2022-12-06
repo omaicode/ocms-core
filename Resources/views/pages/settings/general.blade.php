@@ -108,15 +108,21 @@
                     <x-forms::base-form method="POST" :action="route('admin.settings.analytics.post')">
                         <x-forms::group 
                             label="Tracking ID"
-                            name="app__analytics__trackingId" 
+                            name="analytics__tracking_id" 
                             placeholder="Example: GA-123456778-9"
-                            :value="config('app.analytics.trackingId', '')"
+                            :value="config('analytics.tracking_id', '')"
                         />
                         <x-forms::group 
                             label="View ID"
-                            name="app__analytics__viewId" 
+                            name="analytics__view_id" 
                             placeholder="Enter View ID"
-                            :value="config('app.analytics.viewId', '')"
+                            :value="config('analytics.view_id', '')"
+                        />
+                        <x-forms::group 
+                            label="Service Account Path"
+                            name="analytics__service_account_credentials_json" 
+                            placeholder="Enter Service Account Path"
+                            :value="config('analytics.service_account_credentials_json', '')"
                         />
                         <button
                             type="submit"

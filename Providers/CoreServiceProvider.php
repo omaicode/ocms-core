@@ -53,6 +53,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->app->register(ViewServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);
+        $this->app->register(AnalyticsServiceProvider::class);
 
         Helper::autoload(base_path('modules/Core/Helpers'));
     }

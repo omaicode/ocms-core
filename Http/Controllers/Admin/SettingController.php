@@ -81,8 +81,9 @@ class SettingController extends Controller
     public function updateAnalytics(UpdateAnalytics $request)
     {
         $data = $request->only([
-            'app__analytics__trackingId',
-            'app__analytics__viewId'
+            'analytics__tracking_id',
+            'analytics__view_id',
+            'analytics__service_account_credentials_json',
         ]);
 
         Config::set($data);
