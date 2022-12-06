@@ -4,7 +4,7 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-            labels: {!! json_encode($analytics->pluck('date')->map(fn($x) => \Carbon\Carbon::parse($x)->format('Y-m-d H:i:s'))->toArray()) !!},
+            labels: {!! json_encode($analytics->pluck('date')->map(fn($x) => \Carbon\Carbon::parse($x)->format('Y-m-d'))->toArray()) !!},
             datasets: [{
                 label: 'Views',
                 data: {{ json_encode($analytics->pluck('visitors')->toArray()) }},
