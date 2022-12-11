@@ -34,6 +34,7 @@ return [
     'save_and_edit' => 'Save & Edit',
     'profile' => 'My Profile',
     'logout'  => 'Logout',
+    'statistics' => 'Statistics',
     'admin' => [
         'deleting_yourself' => "You can't delete yourself",
         'new_administrator' => "New Administrator",
@@ -60,7 +61,9 @@ return [
         'cms_version'   => 'CMS Version',
         'changelog'     => 'Changelog',
         'recent_activities' => 'Recent activities',
-        'no_activities'   => 'There is no activities to show.'
+        'no_activities'   => 'There is no activities to show.',
+        'total_visitors' => 'Total Visitors',
+        'total_views'    => 'Total Views',
     ],
     'roles' => [
         'title' => 'Roles',
