@@ -69,6 +69,7 @@ return [
         'created_at' => 'Created at',
         'total_permissions' => 'Total permissions',
         'create' => 'Create',
+        'edit'   => 'Edit',
         'permissions' => [
             'setting' => [
                 'view' => 'View settings menu',

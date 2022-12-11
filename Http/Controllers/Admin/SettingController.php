@@ -22,6 +22,9 @@ class SettingController extends Controller
 
     public function __construct(AdminPage $page)
     {
+        $this->middleware('can:setting.general', ['general', 'updateBackend', 'updateAnalytics', 'updateMaintenance']);
+        $this->middleware('can:setting.email', ['email', 'updateEmail']);
+
         $this->page = $page;
     }
 

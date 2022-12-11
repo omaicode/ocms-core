@@ -2,6 +2,7 @@
 
 namespace Modules\Core\Http\Controllers\Admin;
 
+use ApiResponse;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -20,6 +21,11 @@ class RoleController extends Controller
 
     public function __construct(Request $request, AdminPage $adminPage)
     {
+        $this->middleware('can:system.roles.create', ['create', 'store']);
+        $this->middleware('can:system.roles.edit', ['edit', 'update']);
+        $this->middleware('can:system.roles.delete', ['deletes']);
+        $this->middleware('can:system.roles.view', ['index']);
+
         $this->request   = $request;
         $this->adminPage = $adminPage;
         $this->breadcrumb = [
@@ -137,9 +143,12 @@ class RoleController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function deletes($id)
     {
-        //
+        $rows = $this->request->rows;
+        Role::whereIn('id', $rows)->delete();
+
+        return ApiResponse::success();
     }
 
     private function getPermissions()
