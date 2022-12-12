@@ -41,7 +41,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->loadMenus();
         $this->addComponents();
 
-        if($this->app->environment('production')) {
+        if(config('app.env', 'local') == 'production') {
             \URL::forceScheme('https');
         }        
     }
