@@ -33,10 +33,6 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if($this->app->environment('production')) {
-            \URL::forceScheme('https');
-        }
-                
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
@@ -44,6 +40,10 @@ class CoreServiceProvider extends ServiceProvider
         $this->registerEmailTemplates();
         $this->loadMenus();
         $this->addComponents();
+
+        if($this->app->environment('production')) {
+            \URL::forceScheme('https');
+        }        
     }
 
     /**
