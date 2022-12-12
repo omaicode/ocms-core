@@ -39,11 +39,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
         $this->registerEmailTemplates();
         $this->loadMenus();
-        $this->addComponents();
-
-        if(config('app.env', 'local') == 'production') {
-            $this->app['request']->server->set('HTTPS', true);
-        }        
+        $this->addComponents(); 
     }
 
     /**
