@@ -42,7 +42,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->addComponents();
 
         if(config('app.env', 'local') == 'production') {
-            \URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS', true);
         }        
     }
 
