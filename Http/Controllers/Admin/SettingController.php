@@ -68,7 +68,7 @@ class SettingController extends Controller
 
         if($request->hasFile('app__favicon')) {
             $media = Media::upload($data['app__favicon']);
-            $data['app__favicon'] = $media ? $media['save.path'] : null;
+            $data['app__favicon'] = $media ? $media['save_path'] : null;
         } else {
             unset($data['app__favicon']);
         }

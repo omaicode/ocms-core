@@ -39,7 +39,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
         $this->registerEmailTemplates();
         $this->loadMenus();
-        $this->addComponents();
+        $this->addComponents(); 
     }
 
     /**
