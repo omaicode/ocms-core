@@ -1,6 +1,6 @@
 @extends('core::layouts.blank')
 
-@section('title', '500');
+@section('title', '500')
 @section('content')
 <main>
     <section class="vh-100 d-flex align-items-center justify-content-center">

@@ -26,7 +26,7 @@ class SystemController extends Controller
 
     public function __construct(Request $request)
     {
-        $this->middleware('can:system.information.view', ['index']);
+        $this->middleware('can:system.information.view', ['information']);
         $this->middleware('can:system.activity.view', ['activities']);
         $this->middleware('can:system.error_log.view', ['logs']);
 
