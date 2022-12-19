@@ -24,6 +24,12 @@ class EnsureAppInstalled
             }
         }
 
+        if($request->routeIs('system.install*')) {
+            if(File::exists(storage_path('install')) && Module::has('System')) {
+                return abort(404);
+            }            
+        }
+
         return $next($request);
     }
 }
