@@ -18,14 +18,14 @@ class EnsureAppInstalled
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!$request->routeIs('system.install*')) {
-            if(!File::exists(storage_path('install')) && Module::has('System')) {
-                return redirect()->route('system.install.index');
+        if(!$request->routeIs('LaravelInstaller::*')) {
+            if(!File::exists(storage_path('installed'))) {
+                return redirect('/install');
             }
         }
 
-        if($request->routeIs('system.install*')) {
-            if(File::exists(storage_path('install')) && Module::has('System')) {
+        if($request->routeIs('LaravelInstaller::*')) {
+            if(File::exists(storage_path('installed'))) {
                 return abort(404);
             }            
         }
