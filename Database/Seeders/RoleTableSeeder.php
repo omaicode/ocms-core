@@ -58,7 +58,11 @@ class RoleTableSeeder extends Seeder
             'contact.view',
             'appearance.themes.view',
             'apperance.theme_options.view',
-            'apperance.menus.view'
+            'apperance.menus.view',
+            'appearance.partials.view',
+            'appearance.partials.create',
+            'appearance.partials.edit',
+            'appearance.partials.delete'
         ];        
     }
 
