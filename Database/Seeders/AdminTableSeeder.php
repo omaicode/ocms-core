@@ -25,7 +25,7 @@ class AdminTableSeeder extends Seeder
 
     public function createAdmin()
     {
-        Admin::firstOrCreate([
+        $admin = Admin::firstOrCreate([
             'username' => 'administrator',
             'email'    => 'admin@example.com'
         ], [
@@ -33,5 +33,7 @@ class AdminTableSeeder extends Seeder
             'password' => '123456',
             'super_user' => true
         ]);
+
+        $admin->syncRoles(['Super Admin']);
     }
 }
