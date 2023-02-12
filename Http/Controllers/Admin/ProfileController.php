@@ -6,6 +6,8 @@ use Illuminate\Routing\Controller;
 use Modules\Core\Contracts\AdminPage;
 use Modules\Core\Entities\Admin;
 use Modules\Form\Form;
+use Modules\Media\Support\Uploader;
+
 class ProfileController extends Controller
 {
     protected $request;
@@ -100,8 +102,11 @@ class ProfileController extends Controller
             $model = $form->model();
 
             if($this->request->hasFile('avatar')) {
-                $media = $model->addMedia($this->request->avatar)->toMediaCollection('avatars');
-                $model->update(['avatar' => $media->uuid]);
+                $media = app(Uploader::class)->upload($this->request->avatar);
+
+                if($media->count() > 0) {
+                    $model->update(['avatar' => $media[0]->uuid]);
+                }
             }
         });
         

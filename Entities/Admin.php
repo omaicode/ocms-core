@@ -64,7 +64,7 @@ class Admin extends Authenticatable implements HasMedia
 
     public function registerMediaSavePath(): void
     {
-        $this->setMediaSavePath('avatars')->useFallbackUrl('/images/default-avatar.png');
+        $this->setMediaSavePath('avatar')->useFallbackUrl('/images/default-avatar.png');
     }    
 
     public function getAvatarUrlAttribute()
