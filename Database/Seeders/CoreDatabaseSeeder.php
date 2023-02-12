@@ -17,5 +17,6 @@ class CoreDatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(RoleTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
     }
 }
