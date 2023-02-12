@@ -62,15 +62,13 @@ class Admin extends Authenticatable implements HasMedia
         return $this->attributes['password'] = Hash::make($password);
     }
 
-    public function registerMediaCollections(): void
+    public function registerMediaSavePath(): void
     {
-        $this->addMediaCollection('avatars')
-        ->useFallbackUrl('/images/default-avatar.png')
-        ->useFallbackPath(public_path('/images/default-avatar.png'));        
+        $this->setMediaSavePath('avatars')->useFallbackUrl('/images/default-avatar.png');
     }    
 
     public function getAvatarUrlAttribute()
     {
-        return $this->getFirstMediaUrl('avatars');
+        return $this->getMediaUrl('avatar');
     }
 }
