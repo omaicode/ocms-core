@@ -77,6 +77,13 @@
 @import "volt/forms";
 
 // write your custom styles here!
+.has-validation {
+    &.is-invalid {
+        .invalid-feedback {
+            display: block
+        }
+    }
+}
 
 .form-group {
     .thumbnail-preview {

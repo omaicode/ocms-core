@@ -1,4 +1,4 @@
-<div class="form-group mb-3 has-validation">
+<div class="form-group mb-3 has-validation @if($errors->has($name)) is-invalid @endif">
     @if($label && $mode != 'switch')
         <label for="{{$name}}" class="form-label">@lang($label) @if($required)<span class="text-danger">*</span>@endif</label>
     @endif
