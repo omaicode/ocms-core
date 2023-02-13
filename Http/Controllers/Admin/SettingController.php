@@ -75,7 +75,7 @@ class SettingController extends Controller
 
         $data['app__debug'] = @$data['app__debug'] == 'on' ? true : false;
         $data['app__cache'] = @$data['app__cache'] == 'on' ? true : false;
-        dd($data);
+
         Config::set($data);
 
         return redirect()->back()->with('toast_success', __('core::messages.saved'));
